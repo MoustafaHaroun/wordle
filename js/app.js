@@ -14,33 +14,48 @@ const wordsApiUrl = "https://words.dev-apis.com";
 
 let currentRow = document.querySelectorAll(".row")[numberOfGuesses];
 
+const keyboard = document.querySelector(".keyboard");
+
 init();
 
 async function init() {
     wordOfTheDay = await getWordOfTheDay();
 
+    keyboard.addEventListener("click", function (event) {
+        handelInput(event.target.innerText);
+    });
+
     document.addEventListener("keydown", function (event) {
-        isLetterVal = isLetter(event.key);
-
-        switch (event.key) {
-            case "Backspace":
-                handleBack();
-                break;
-            case "Enter":
-                handleSubmit();
-                break;
-            default:
-                if (isLetterVal & !gameDone) {
-                    handelInput(event.key);
-                }
-                break;
-        }
-
-        rerender();
+        handelInput(event.key);
     });
 }
 
 function handelInput(input) {
+    input = input.toLowerCase();
+    console.log(input.toLowerCase());
+    isLetterVal = isLetter(input);
+
+    switch (input) {
+        case "backspace":
+            handleBack();
+            break;
+        case "⌫":
+            handleBack();
+            break;
+        case "enter":
+            handleSubmit();
+            break;
+        default:
+            if (isLetterVal & !gameDone) {
+                handelLetter(input);
+            }
+            break;
+    }
+
+    rerender();
+}
+
+function handelLetter(input) {
     if (guess.length >= maxGuessLenght) {
         shakeRow();
         return;
@@ -96,24 +111,19 @@ async function handleSubmit() {
             () => {
                 currentInput.classList.remove("card-flip");
 
-                currentInput.style.color = "white";
-
                 if (wordOfTheDay[i] === currentLetter) {
-                    currentInput.style.backgroundColor = "var(--wordle-green)";
-                    currentInput.style.borderColor = "var(--wordle-green)";
+                    currentInput.classList.add("correct");
                 } else if (wordOfTheDay.includes(currentLetter)) {
-                    currentInput.style.backgroundColor = "var(--wordle-yellow)";
-                    currentInput.style.borderColor = "var(--wordle-yellow)";
+                    currentInput.classList.add("includes");
                 } else {
-                    currentInput.style.backgroundColor = "var(--wordle-gray)";
-                    currentInput.style.borderColor = "var(--wordle-gray)";
+                    currentInput.classList.add("notIncludes");
                 }
             },
             { once: true },
         );
     }
 
-    if (numberOfGuesses < 5) {
+    if (numberOfGuesses < maxNumberOfGuesses) {
         numberOfGuesses++;
         guess = "";
     }

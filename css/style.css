@@ -2,6 +2,7 @@
     --wordle-gray: #787c7e;
     --wordle-yellow: #c9b458;
     --wordle-green: #6aaa64;
+    --wordle-background-gray: #d3d6da;
     --flip-delay: 0;
 }
 
@@ -12,7 +13,9 @@
 
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 .row {
@@ -35,6 +38,63 @@ body {
     text-transform: uppercase;
     font-size: 18px;
     font-weight: bold;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    padding-top: 25px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.keyboard-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    /*outline: 2px solid red;*/
+}
+
+.letter-key {
+    background-color: var(--wordle-background-gray);
+    border: 0px solid var(--wordle-background-gray);
+    border-radius: 3px;
+    height: 58px;
+    flex: 1;
+
+    width: 40px;
+
+    text-transform: uppercase;
+
+    font-weight: bold;
+    font-size: 1.25em;
+    margin: 2px;
+
+    /*outline: 1px solid blue;*/
+}
+
+.enter-key {
+    width: 80px;
+    flex: 2;
+}
+
+.correct {
+    color: white;
+    background-color: var(--wordle-green);
+    border-color: var(--wordle-green);
+}
+
+.notIncludes {
+    color: white;
+    background-color: var(--wordle-gray);
+    border-color: var(--wordle-gray);
+}
+
+.includes {
+    color: white;
+    background-color: var(--wordle-yellow);
+    border-color: var(--wordle-yellow);
 }
 
 @keyframes inputEffect {
