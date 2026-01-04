@@ -36,7 +36,6 @@ function handelInput(input) {
     }
 
     input = input.toLowerCase();
-    console.log(input.toLowerCase());
     isLetterVal = isLetter(input);
 
     switch (input) {
@@ -129,6 +128,10 @@ async function handleSubmit() {
 
     if (numberOfGuesses == maxNumberOfGuesses) {
         gameDone = true;
+
+        if (!correct) {
+            alert(wordOfTheDay);
+        }
     }
 
     if (numberOfGuesses < maxNumberOfGuesses) {
