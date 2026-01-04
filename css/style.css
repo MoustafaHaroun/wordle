@@ -12,10 +12,39 @@
 }
 
 body {
+    height: 100%;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.footer-link {
+    padding-top: 10px;
+    color: black;
+    text-decoration: none;
+}
+
+.header-button {
+    background-color: white;
+    font-weight: bolder;
+    border-radius: 12px;
+    padding: 5px;
+}
+
+.header {
+    height: 44px;
+    border-bottom: 1px solid var(--wordle-background-gray);
+}
+
+.wordle-game {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    flex: 1;
+    padding-top: 36px;
 }
 
 .row {
@@ -52,8 +81,6 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
-
-    /*outline: 2px solid red;*/
 }
 
 .letter-key {
@@ -70,8 +97,6 @@ body {
     font-weight: bold;
     font-size: 1.25em;
     margin: 2px;
-
-    /*outline: 1px solid blue;*/
 }
 
 .enter-key {

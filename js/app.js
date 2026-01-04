@@ -31,6 +31,10 @@ async function init() {
 }
 
 function handelInput(input) {
+    if (gameDone) {
+        return;
+    }
+
     input = input.toLowerCase();
     console.log(input.toLowerCase());
     isLetterVal = isLetter(input);
@@ -123,13 +127,13 @@ async function handleSubmit() {
         );
     }
 
+    if (numberOfGuesses == maxNumberOfGuesses) {
+        gameDone = true;
+    }
+
     if (numberOfGuesses < maxNumberOfGuesses) {
         numberOfGuesses++;
         guess = "";
-    }
-
-    if (numberOfGuesses == 6) {
-        gameDone = true;
     }
 }
 
