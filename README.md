@@ -5,6 +5,12 @@
 
 <h1 align="center">Wordle Clone</h1>
 
+<p align="center">
+  <a href="https://moustafaharoun.github.io/wordle/" target="_blank">
+    <strong>▶ Play the Wordle Clone</strong>
+  </a>
+</p>
+
 ---
 > [!NOTE]
 > This project was built for learning purposes. No AI was used to generate the code, it was only used for research and documentation.
