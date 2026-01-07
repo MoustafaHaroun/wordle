@@ -6,8 +6,10 @@
 <h1 align="center">Wordle Clone</h1>
 
 <p align="center">
-  <a href="https://moustafaharoun.github.io/wordle/" target="_blank">
-    <strong>▶ Play the Wordle Clone</strong>
+  <a href="https://moustafaharoun.github.io/wordle/"
+     target="_blank"
+     rel="noopener noreferrer">
+     <strong>▶ Play Wordle</strong>
   </a>
 </p>
 
